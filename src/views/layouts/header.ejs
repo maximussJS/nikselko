@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Telegram bot's">
+    <meta name="author" content="Nikselko">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <title>CourseWork</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+     rel="stylesheet"
+     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+     crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="/" class="navbar-brand align-items-center">
+                   <strong>Nikselko</strong>
+                </a>
+                <% if(user !== false) { %>
+                <a href="/" class="navbar-brand align-items-center">
+                     Username : <%=user.login%>
+                </a>
+                <%}%>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarHeader" aria-controls="navbarHeader"
+                 aria-expanded="false" aria-label="Toggle navigation">
+
+                    <% if(isAuthorized) { %>
+                        <% if(user.role === 'user') { %>
+                    <a class="btn btn-dark" href="/orders/add" role="button">
+                        Make Order
+                    </a>
+                            <% } %>
+                        <a class="btn btn-dark" href="/authorization/logout" role="button">
+                            Exit
+                        </a>
+                    <% } else { %>
+                            <a class="btn btn-dark" href="/authorization/login" role="button">
+                                Login
+                            </a>
+                            <a class="btn btn-dark" href="/authorization/registration" role="button">
+                                Registration
+                            </a>
+                        <% }%>
+                </button>
+            </div>
+        </div>
+    </header>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Sign Up">
+    <meta name="author" content="Nikselko">
+    <link rel="icon" href="/images/favicon.ico">
+    <title>Log In</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link href="css/signin.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+<form id="myform" method="post" action="/authorization/login">
+    <br>
+    <h1 class="h3 mb-3 font-weight-normal">
+        Sign in
+    </h1>
+    <label for="inputLogin" class="sr-only">
+        Login
+    </label>
+    <input type="text" name="login" id="inputLogin"
+           placeholder="Enter Login..." minlength="8" maxlength="20" required autofocus>
+    <hr>
+    <label for="inputPassword" class="sr-only">
+        Password
+    </label>
+    <input type="password" name="password" id="inputPassword"
+           placeholder="Enter Password..." minlength="8" maxlength="20" required>
+    <hr>
+    <button type="submit" class="btn btn-lg btn-primary">
+        Sign in
+    </button>
+    <a class="btn btn-lg btn-dark btn-secondary"
+       href="/authorization/registration" role="button">
+        Registration
+    </a>
+    <hr>
+</form>
+</body>
+</html>

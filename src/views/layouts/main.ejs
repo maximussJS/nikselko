@@ -1,0 +1,83 @@
+<main role="main">
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <% if(isAdmin) { %>
+                    <h2>
+                        Users
+                    </h2>
+                        <ol>
+                            <% for(let i = 0; i != users.length; i++) { %>
+                                <li>
+                                    <div class="card-body">
+                                        <h3><%= users[i].login %> </h3>
+                                        <h5> <strong>Role:</strong> <%= users[i].role %></h5>
+                                        <% if(users[i].role !== 'admin') { %>
+                                        <a class="btn btn-sm btn-dark btn-secondary"
+                                           href="/users/admin/<%=users[i].id%>" role="button">
+                                            Update to Admin
+                                        </a>
+                                        <% if(users[i].role !== 'employee') { %>
+                                        <a class="btn btn-sm btn-dark btn-secondary"
+                                           href="/users/employee/<%=users[i].id%>" role="button">
+                                            Update to Employee
+                                        </a>
+                                        <% } else { %>
+                                        <a class="btn btn-sm btn-dark btn-secondary"
+                                           href="/users/user/<%=users[i].id%>" role="button">
+                                            Make user
+                                        </a>
+                                        <% } %>
+                                        <a class="btn btn-sm btn-dark btn-secondary"
+                                           href="/users/delete/<%=users[i].id%>" role="button">
+                                            Delete
+                                        </a>
+                                        <% } %>
+
+                                    </div>
+                                </li>
+                                <hr>
+                            <% } %>
+                        </ol>
+                        <hr>
+                    <% } %>
+                        <h2 class="user-orders">
+                            Orders
+                        </h2>
+                    <ol>
+                    <% for(let i = 0; i != items.length; i++) { %>
+                     <li>
+                            <div class="card-body">
+                                <h3><%= items[i].title %></h3>
+                                <h5><strong>Author:</strong> <%= items[i].author %></h5>
+                                <h5><strong>Description</strong>: <%= items[i].text %></h5>
+                                <% if(items[i].status) { %>
+                                   <h6><strong>Status:</strong> Done!</h6>
+                                <% } else  { %>
+                                    <h5><strong>Status:</strong> Active</h5>
+                                    <% if(user.role === 'employee') { %>
+                                    <a class="btn btn-sm btn-dark btn-secondary"
+                                       href="/orders/do/<%=items[i].id%>" role="button">
+                                        Do it
+                                    </a>
+                                    <% } %>
+                                <% } %>
+                                <% if(items[i].author === user.login || isAdmin ) { %>
+                                <a class="btn btn-sm btn-dark btn-secondary"
+                                   href="/orders/edit/<%=items[i].id%>" role="button">
+                                    Edit
+                                </a>
+                                <a class="btn btn-sm btn-dark btn-secondary"
+                                       href="/orders/delete/<%=items[i].id%>" role="button">
+                                        Delete
+                                    </a>
+                                <% } %>
+                            </div>
+                     </li>
+                        <hr>
+                        <% } %>
+                    </ol>
+                    </div>
+                </div>
+            </div>
+</main>

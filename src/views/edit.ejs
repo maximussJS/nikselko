@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Sign Up">
+    <meta name="author" content="Nikselko">
+    <link rel="icon" href="/images/favicon.ico">
+    <title>Edit post</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+    <link href="/css/signin.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+    <form action="/orders/edit/<%=item.id%>" method="post"
+          class="form-signin" id="myform">
+      <h2>Edit Order</h2>
+
+      <div class="form-group">
+      <label for="editTitle" class="sr-only">
+        Title
+      </label>
+      <input type="text" name="title" id="editTitle" class="form-control" value="<%=item.title%>"
+       placeholder="Enter title..." minlength="8" maxlength="20" required autofocus>
+      </div>
+
+      <div class="form-group">
+        <label for="editText" class="sr-only">
+          Text
+         </label>
+        <textarea name="text" class="form-control" placeholder="Enter text..."
+        id="editText" rows="2"><%=item.text%></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-lg btn-block">
+          Submit Edit
+      </button>
+    </form>
+  </body>
+</html>
